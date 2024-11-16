@@ -128,7 +128,7 @@ export function CsvToJsonConverter() {
           <div className="flex items-center justify-between px-4 py-2 border-b">
             <div className="flex items-center gap-2">
               <FileType2 className="h-4 w-4" />
-              <h3 className="font-medium">CSV Input</h3>
+              <p className="font-medium">CSV Input</p>
             </div>
             <Button onClick={convertToJSON} size="sm">
               Convert to JSON

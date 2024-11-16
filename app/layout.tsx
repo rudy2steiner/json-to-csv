@@ -7,7 +7,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'JSON-CSV Converter | Free Online Tool',
+  title: 'JSON to CSV Converter Free Online Tool | jsoncsv.org',
   description: 'Convert JSON to CSV and CSV to JSON online. Free, fast, and secure file conversion tool with preview and download options.',
   keywords: 'JSON to CSV, CSV to JSON, file converter, data conversion, online tool',
   openGraph: {

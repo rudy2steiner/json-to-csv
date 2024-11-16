@@ -1,4 +1,5 @@
 import { FileJson, FileType2 } from 'lucide-react';
+import Image from "next/image";
 
 export function Header() {
   return (
@@ -7,14 +8,14 @@ export function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="flex items-center text-primary">
-              <FileJson className="h-6 w-6" />
-              <div className="mx-1 text-2xl">&rarr;</div>
-              <FileType2 className="h-6 w-6" />
+             <a href='/' className="-m-1.5 p-1.5" >
+                         <Image className="h-8 w-auto" src="/appicon.svg" alt="jsonhome.com" width={32} height={32}/>
+            </a>
             </div>
-            <h1 className="text-xl font-semibold">JSON to CSV Converter</h1>
+            <p className="text-xl font-semibold">jsoncsv</p>
           </div>
           <a
-            href="https://github.com"
+            href="https://github.com/rudy2steiner/json-to-csv"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-muted-foreground hover:text-primary transition-colors"

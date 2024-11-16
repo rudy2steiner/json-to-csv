@@ -9,7 +9,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900">
       <Header />
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-3xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto space-y-8">
           <Tabs defaultValue="json-to-csv" className="space-y-6">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="json-to-csv">JSON to CSV</TabsTrigger>
