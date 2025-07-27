@@ -1,0 +1,207 @@
+{
+  "common": {
+    "title": "JSON 转 CSV",
+    "description": "快速安全地将 JSON 数据转换为 CSV 格式",
+    "upload": "上传 JSON",
+    "uploadUrl": "从 URL 上传",
+    "add": "添加",
+    "generate": "转换",
+    "options": "选项",
+    "examples": "示例",
+    "generated": "转换结果",
+    "useExample": "使用此示例",
+    "loading": "转换中...",
+    "error": {
+      "title": "错误",
+      "description": "出现错误",
+      "tryAgain": "重试",
+      "notFound": {
+        "title": "页面未找到",
+        "description": "您访问的页面不存在",
+        "returnHome": "返回首页"
+      },
+      "invalidJson": "请输入有效的 JSON 数据",
+      "conversionFailed": "JSON 转 CSV 转换失败",
+      "timeout": "请求超时，请重试"
+    },
+    "success": "成功",
+    "exampleLoaded": "示例加载成功",
+    "exampleError": "加载示例失败",
+    "json": {
+      "title": "JSON 转 CSV 转换器",
+      "placeholder": "输入您的 JSON 数据或上传文件",
+      "convert": "转换为 CSV",
+      "converting": "转换中...",
+      "converted": "转换成功",
+      "failed": "转换失败",
+      "error": "转换错误",
+      "invalidJson": "请输入有效的 JSON 数据",
+      "conversionFailed": "JSON 转 CSV 转换失败"
+    },
+    "table": {
+      "data": "数据",
+      "preview": "预览",
+      "format": "格式",
+      "options": "选项",
+      "actions": "操作"
+    }
+  },
+  "nav": {
+    "home": "首页",
+    "gallery": "画廊",
+    "csv-to-json": "CSV 转 JSON",
+    "blog": "博客"
+  },
+  "form": {
+    "jsonInput": "JSON 输入",
+    "csvOutput": "CSV 输出",
+    "format": "格式",
+    "style": "样式",
+    "delimiter": "分隔符",
+    "encoding": "编码",
+    "headers": "包含标题",
+    "preview": "预览",
+    "download": "下载 CSV"
+  },
+  "hero": {
+    "tagline": "转换 JSON 为 CSV",
+    "title": "JSON 转 CSV 转换器",
+    "description": "使用我们快速、安全、用户友好的 JSON 转 CSV 工具立即转换您的 JSON 为 CSV。无需注册，无需数据上传——只需在浏览器中进行纯 JSON 转 CSV 转换。"
+  },
+  "benefits": {
+    "title": "为什么选择我们的 JSON 转 CSV 转换器",
+    "items": {
+      "privacy": {
+        "title": "100% 隐私保护",
+        "description": "您的 JSON 转 CSV 转换完全在浏览器中进行。无上传，无风险——您的数据保持安全"
+      },
+      "speed": {
+        "title": "闪电般快速",
+        "description": "几秒钟内转换 JSON 为 CSV，即使是大文件。我们的 JSON 转 CSV 工具针对速度和可靠性进行了优化"
+      },
+      "formats": {
+        "title": "多种格式",
+        "description": "支持复杂的 JSON 结构、嵌套对象和我们的 JSON 转 CSV 转换器中的各种 CSV 格式"
+      },
+      "unlimited": {
+        "title": "免费且无限制",
+        "description": "随心所欲使用我们的 JSON 转 CSV 转换器——无限制，无费用，只需简单的 JSON 转 CSV 转换"
+      }
+    }
+  },
+  "features": {
+    "title": "高级功能",
+    "items": {
+      "fastConversion": {
+        "title": "闪电般快速处理",
+        "description": "使用我们优化的引擎在几秒钟内将大型 JSON 文件转换为 CSV"
+      },
+      "securePrivate": {
+        "title": "100% 浏览器处理",
+        "description": "所有 JSON 转 CSV 转换都在您的浏览器中本地进行 - 数据不会离开您的设备"
+      },
+      "jsonSupport": {
+        "title": "高级 JSON 处理",
+        "description": "支持嵌套对象、数组、混合数据类型和复杂的 JSON 结构"
+      },
+      "csvPreview": {
+        "title": "实时预览",
+        "description": "通过我们的交互式表格预览立即查看您的 JSON 转 CSV 转换结果"
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "JSON 转 CSV 转换工作原理",
+    "steps": {
+      "upload": {
+        "number": "01",
+        "title": "上传 JSON",
+        "description": "上传您的 JSON 文件或粘贴 JSON 数据"
+      },
+      "style": {
+        "number": "02",
+        "title": "配置选项",
+        "description": "设置 CSV 格式、分隔符和编码选项"
+      },
+      "generate": {
+        "number": "03",
+        "title": "转换为 CSV",
+        "description": "我们的工具将您的 JSON 转换为 CSV 格式"
+      },
+      "download": {
+        "number": "04",
+        "title": "下载 CSV",
+        "description": "下载您转换后的 CSV 文件"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "用户对我们 JSON 转 CSV 工具的评价",
+    "items": [
+      {
+        "name": "陈博士",
+        "role": "高级数据科学家",
+        "quote": "这个 JSON 转 CSV 转换器显著简化了我们的数据处理流程。基于浏览器的处理确保我们的敏感数据永远不会离开我们的基础设施。",
+        "image": "/testimonials/t1.jpeg"
+      },
+      {
+        "name": "王工程师",
+        "role": "首席软件工程师",
+        "quote": "完美处理复杂的嵌套 JSON 结构。实时预览功能为我们的开发团队节省了无数调试时间。",
+        "image": "/testimonials/t2.jpeg"
+      },
+      {
+        "name": "林经理",
+        "role": "数据运营经理",
+        "quote": "我们每天处理数千个 JSON 文件。这个工具的速度和可靠性使其成为我们数据处理工作流程的重要组成部分。",
+        "image": "/testimonials/t3.jpeg"
+      }
+    ]
+  },
+  "faq": {
+    "title": "关于 JSON 转 CSV 的常见问题",
+    "items": [
+      {
+        "question": "JSON 转 CSV 转换器是如何工作的？",
+        "answer": "我们的工具解析您的 JSON 数据并使用高效算法将其转换为 CSV 格式，同时保持数据结构。"
+      },
+      {
+        "question": "支持哪些 JSON 格式？",
+        "answer": "我们支持所有 JSON 格式，包括嵌套对象、数组和用于 CSV 转换的复杂数据结构。"
+      },
+      {
+        "question": "JSON 转 CSV 服务是免费的吗？",
+        "answer": "是的，我们的 JSON 转 CSV 转换服务完全免费使用。"
+      },
+      {
+        "question": "JSON 转 CSV 转换的准确度如何？",
+        "answer": "我们提供准确的 JSON 转 CSV 转换，正确处理数据类型和结构。"
+      },
+      {
+        "question": "我可以转换大型 JSON 文件为 CSV 吗？",
+        "answer": "是的，您可以使用我们的工具高效地将大型 JSON 文件转换为 CSV 格式。"
+      }
+    ]
+  },
+  "cta": {
+    "title": "准备转换 JSON 为 CSV？",
+    "description": "快速安全地将您的 JSON 数据转换为 CSV 格式",
+    "button": "立即转换 JSON 为 CSV"
+  },
+  "footer": {
+    "product": "产品",
+    "community": "社区",
+    "features": "功能",
+    "examples": "示例",
+    "blog": "博客",
+    "pricing": "定价",
+    "support": "支持",
+    "helpCenter": "帮助中心",
+    "contact": "联系我们",
+    "legal": "法律",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "cookies": "Cookie 政策",
+    "rights": "版权所有"
+  }
+}
