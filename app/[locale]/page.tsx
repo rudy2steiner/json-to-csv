@@ -11,7 +11,7 @@ import { FAQ } from '@/components/sections/FAQ';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'JSON To CSV Converter Free Online Tool | jsontocsv.co',
+  title: 'JSON To CSV Converter Free Online | jsontocsv.co',
   description: 'Convert JSON to CSV and CSV to JSON online. Free, fast, and secure file conversion tool with preview and download options.',
   keywords: [
   ],
