@@ -1,0 +1,207 @@
+{
+  "common": {
+    "title": "JSON TO CSV",
+    "description": "Convert JSON data to CSV format quickly and securely",
+    "upload": "Upload JSON",
+    "uploadUrl": "Upload from URL",
+    "add": "Add",
+    "generate": "Convert",
+    "options": "Options",
+    "examples": "Examples",
+    "generated": "Converted Results",
+    "useExample": "Use This Example",
+    "loading": "Converting...",
+    "error": {
+      "title": "Error",
+      "description": "Something went wrong",
+      "tryAgain": "Try Again",
+      "notFound": {
+        "title": "Page Not Found",
+        "description": "The page you're looking for doesn't exist",
+        "returnHome": "Return Home"
+      },
+      "invalidJson": "Please enter valid JSON data",
+      "conversionFailed": "Failed to convert JSON to CSV",
+      "timeout": "Request timed out. Please try again."
+    },
+    "success": "Success",
+    "exampleLoaded": "Example loaded successfully",
+    "exampleError": "Failed to load example",
+    "json": {
+      "title": "JSON to CSV Converter",
+      "placeholder": "Enter your JSON data or upload a file",
+      "convert": "Convert to CSV",
+      "converting": "Converting...",
+      "converted": "Converted Successfully",
+      "failed": "Conversion Failed",
+      "error": "Conversion Error",
+      "invalidJson": "Please enter valid JSON data",
+      "conversionFailed": "Failed to convert JSON to CSV"
+    },
+    "table": {
+      "data": "Data",
+      "preview": "Preview",
+      "format": "Format",
+      "options": "Options",
+      "actions": "Actions"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "csv-to-json": "CSV to JSON",
+    "blog": "Blog"
+  },
+  "form": {
+    "jsonInput": "JSON Input",
+    "csvOutput": "CSV Output",
+    "format": "Format",
+    "style": "Style",
+    "delimiter": "Delimiter",
+    "encoding": "Encoding",
+    "headers": "Include Headers",
+    "preview": "Preview",
+    "download": "Download CSV"
+  },
+  "hero": {
+    "tagline": "Convert JSON to CSV",
+    "title": "JSON to CSV Converter",
+    "description": "Instantly convert your JSON to CSV with our fast, secure, and user-friendly JSON to CSV tool. No sign-up, no data upload—just pure JSON to CSV conversion in your browser."
+  },
+  "benefits": {
+    "title": "Why Choose Our JSON to CSV Converter",
+    "items": {
+      "privacy": {
+        "title": "100% Privacy",
+        "description": "Your JSON to CSV conversion happens entirely in your browser. No uploads, no risk—your data stays safe"
+      },
+      "speed": {
+        "title": "Lightning Fast",
+        "description": "Convert JSON to CSV in seconds, even for large files. Our JSON to CSV tool is optimized for speed and reliability"
+      },
+      "formats": {
+        "title": "Multiple Formats",
+        "description": "Support for complex JSON structures, nested objects, and various CSV formats in our JSON to CSV converter."
+      },
+      "unlimited": {
+        "title": "Free & Unlimited",
+        "description": "Use our JSON to CSV converter as much as you want—no limits, no fees, just easy JSON to CSV conversion."
+      }
+    }
+  },
+  "features": {
+    "title": "Advanced Features",
+    "items": {
+      "fastConversion": {
+        "title": "Lightning Fast",
+        "description": "Convert large JSON files to CSV in seconds with our optimized engine"
+      },
+      "securePrivate": {
+        "title": "100% Browser-Based",
+        "description": "All JSON to CSV conversion happens locally in your browser - no data leaves your device"
+      },
+      "jsonSupport": {
+        "title": "Advanced JSON Handling",
+        "description": "Support for nested objects, arrays, mixed data types, and complex JSON structures"
+      },
+      "csvPreview": {
+        "title": "Real-Time Preview",
+        "description": "See your JSON to CSV conversion results instantly with our interactive table preview"
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How JSON to CSV Conversion Works",
+    "steps": {
+      "upload": {
+        "number": "01",
+        "title": "Upload JSON",
+        "description": "Upload your JSON file or paste JSON data"
+      },
+      "style": {
+        "number": "02",
+        "title": "Configure Options",
+        "description": "Set CSV format, delimiter, and encoding options"
+      },
+      "generate": {
+        "number": "03",
+        "title": "Convert to CSV",
+        "description": "Our tool converts your JSON to CSV format"
+      },
+      "download": {
+        "number": "04",
+        "title": "Download CSV",
+        "description": "Download your converted CSV file"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "What Users Say About Our JSON to CSV Converter",
+    "items": [
+      {
+        "name": "Dr. Emily Rodriguez",
+        "role": "Senior Data Scientist",
+        "quote": "This JSON to CSV converter has streamlined our data pipeline significantly. The browser-based processing ensures our sensitive data never leaves our infrastructure.",
+        "image": "/testimonials/t1.jpeg"
+      },
+      {
+        "name": "Alex Thompson",
+        "role": "Lead Software Engineer",
+        "quote": "Handles complex nested JSON structures flawlessly. The real-time preview feature has eliminated countless debugging hours for our development team.",
+        "image": "/testimonials/t2.jpeg"
+      },
+      {
+        "name": "Maria Santos",
+        "role": "Data Operations Manager",
+        "quote": "We process thousands of JSON files daily. This tool's speed and reliability have made it an essential part of our data processing workflow.",
+        "image": "/testimonials/t3.jpeg"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions About JSON to CSV",
+    "items": [
+      {
+        "question": "How does the JSON to CSV converter work?",
+        "answer": "Our tool parses your JSON data and converts it to CSV format using efficient algorithms while preserving data structure."
+      },
+      {
+        "question": "What JSON formats are supported?",
+        "answer": "We support all JSON formats including nested objects, arrays, and complex data structures for CSV conversion."
+      },
+      {
+        "question": "Is the JSON to CSV service free?",
+        "answer": "Yes, our JSON to CSV conversion service is completely free to use."
+      },
+      {
+        "question": "How accurate is the JSON to CSV conversion?",
+        "answer": "We provide accurate JSON to CSV conversion with proper handling of data types and structures."
+      },
+      {
+        "question": "Can I convert large JSON files to CSV?",
+        "answer": "Yes, you can convert large JSON files to CSV format efficiently with our tool."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Convert JSON to CSV?",
+    "description": "Convert your JSON data to CSV format quickly and securely",
+    "button": "Convert JSON to CSV Now"
+  },
+  "footer": {
+    "product": "Product",
+    "community": "Community",
+    "features": "Features",
+    "examples": "Examples",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "support": "Support",
+    "helpCenter": "Help Center",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "cookies": "Cookie Policy",
+    "rights": "All rights reserved."
+  }
+}
