@@ -20,7 +20,32 @@ export function JsonToCsvConverter() {
   const [jsonContent, setJsonContent] = useState<string>('');
   const [csvContent, setCsvContent] = useState<string>('');
   const [tableData, setTableData] = useState<{ headers: string[]; rows: any[] }>({ headers: [], rows: [] });
+  const [isConverting, setIsConverting] = useState<boolean>(false);
+  const [jsonError, setJsonError] = useState<string>('');
   const { toast } = useToast();
+
+  // Helper function to get user-friendly JSON error messages
+  const getJsonErrorMessage = (error: Error): string => {
+    const errorMessage = error.message;
+    
+    if (errorMessage.includes('Unexpected token')) {
+      return 'JSON syntax error: Check for missing commas, brackets, or quotes';
+    } else if (errorMessage.includes('Unexpected end')) {
+      return 'JSON is incomplete: Check for missing closing brackets or quotes';
+    } else if (errorMessage.includes('Unexpected number')) {
+      return 'JSON number format error: Check for invalid number values';
+    } else if (errorMessage.includes('Unexpected string')) {
+      return 'JSON string format error: Check for unescaped quotes or invalid characters';
+    } else if (errorMessage.includes('Unexpected identifier')) {
+      return 'JSON format error: Check for unquoted property names or invalid syntax';
+    } else if (errorMessage.includes('Unexpected comma')) {
+      return 'JSON syntax error: Check for trailing commas';
+    } else if (errorMessage.includes('Unexpected property')) {
+      return 'JSON syntax error: Check for duplicate property names';
+    }
+    
+    return 'Invalid JSON format';
+  };
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
@@ -33,6 +58,7 @@ export function JsonToCsvConverter() {
           setJsonContent(JSON.stringify(json, null, 2));
           setCsvContent('');
           setTableData({ headers: [], rows: [] });
+          setJsonError('');
         } catch (error) {
           toast({
             title: "Error reading file",
@@ -57,11 +83,53 @@ export function JsonToCsvConverter() {
     setJsonContent(value);
     setCsvContent('');
     setTableData({ headers: [], rows: [] });
+    
+    // Clear previous error if input is empty
+    if (!value.trim()) {
+      setJsonError('');
+      return;
+    }
+    
+    // Validate JSON format in real-time
+    try {
+      const json = JSON.parse(value);
+      if (!Array.isArray(json)) {
+        setJsonError('JSON must be an array of objects');
+      } else if (json.length === 0) {
+        setJsonError('JSON array is empty');
+      } else if (!json.every(item => typeof item === 'object' && item !== null)) {
+        setJsonError('All items in the JSON array must be objects');
+      } else {
+        setJsonError('');
+      }
+    } catch (error) {
+      setJsonError(getJsonErrorMessage(error instanceof Error ? error : new Error('Invalid JSON format')));
+    }
   };
 
-  const convertToCSV = () => {
+  const convertToCSV = async () => {
+    // Check if JSON content is empty
+    if (!jsonContent.trim()) {
+      toast({
+        title: "No JSON content",
+        description: "Please enter or upload JSON data to convert.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsConverting(true);
+    
+    // Add a small delay to show loading state for better UX
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
     try {
-      const json = JSON.parse(jsonContent);
+      let json;
+      try {
+        json = JSON.parse(jsonContent);
+      } catch (parseError) {
+        throw new Error(getJsonErrorMessage(parseError instanceof Error ? parseError : new Error('Invalid JSON format')));
+      }
       
       if (!Array.isArray(json)) {
         throw new Error('JSON must be an array of objects');
@@ -71,13 +139,32 @@ export function JsonToCsvConverter() {
         throw new Error('JSON array is empty');
       }
 
+      // Check if all items are objects
+      if (!json.every(item => typeof item === 'object' && item !== null)) {
+        throw new Error('All items in the JSON array must be objects');
+      }
+
       const headers = Object.keys(json[0]);
+      
+      if (headers.length === 0) {
+        throw new Error('The first object in the array has no properties');
+      }
+
       const csvRows = [headers.join(',')];
 
       for (const row of json) {
         const values = headers.map(header => {
           const val = row[header];
-          return typeof val === 'string' ? `"${val.replace(/"/g, '""')}"` : val;
+          if (val === null || val === undefined) {
+            return '';
+          }
+          if (typeof val === 'string') {
+            return `"${val.replace(/"/g, '""')}"`;
+          }
+          if (typeof val === 'object') {
+            return `"${JSON.stringify(val).replace(/"/g, '""')}"`;
+          }
+          return String(val);
         });
         csvRows.push(values.join(','));
       }
@@ -87,14 +174,17 @@ export function JsonToCsvConverter() {
       
       toast({
         title: "Conversion successful",
-        description: "Your JSON has been converted to CSV format."
+        description: `Converted ${json.length} rows with ${headers.length} columns to CSV format.`
       });
     } catch (error) {
+      console.error('Conversion error:', error);
       toast({
         title: "Conversion failed",
         description: error instanceof Error ? error.message : "Invalid JSON format",
         variant: "destructive"
       });
+    } finally {
+      setIsConverting(false);
     }
   };
 
@@ -142,17 +232,36 @@ export function JsonToCsvConverter() {
               <FileJson className="h-4 w-4" />
               <p className="font-medium">JSON Input</p>
             </div>
-            <Button onClick={convertToCSV} size="sm">
-              Convert to CSV
+            <Button 
+              onClick={convertToCSV} 
+              size="sm"
+              disabled={!jsonContent.trim() || isConverting || !!jsonError}
+              className={!jsonContent.trim() || jsonError ? "opacity-50 cursor-not-allowed" : ""}
+            >
+              {isConverting ? "Converting..." : "Convert to CSV"}
             </Button>
           </div>
           <div className="p-5">
             <Textarea
               value={jsonContent}
               onChange={(e) => handleJsonInput(e.target.value)}
-              placeholder="Paste your JSON array here..."
-              className="min-h-[200px] font-mono text-sm"
+              placeholder={`[
+  {"name": "John", "age": 30, "city": "New York"},
+  {"name": "Jane", "age": 25, "city": "Los Angeles"},
+  {"name": "Bob", "age": 35, "city": "Chicago"}
+]`}
+              className={`min-h-[200px] font-mono text-sm ${jsonError ? 'border-red-500 focus:border-red-500' : ''}`}
             />
+            {jsonError ? (
+              <p className="text-xs text-red-500 mt-2 flex items-center gap-1">
+                <span className="w-1 h-1 bg-red-500 rounded-full"></span>
+                {jsonError}
+              </p>
+            ) : (
+              <p className="text-xs text-muted-foreground mt-2">
+                Enter a JSON array of objects. Each object should have the same properties.
+              </p>
+            )}
           </div>
         </div>
 
