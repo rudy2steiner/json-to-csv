@@ -54,14 +54,46 @@ export function CsvToJsonConverter() {
         throw new Error('CSV must have headers and at least one data row');
       }
 
-      const headers = lines[0].split(',').map(header => 
-        header.trim().replace(/^["'](.+)["']$/, '$1')
-      );
+      // Parse CSV line with proper handling of quoted fields
+      const parseCSVLine = (line: string): string[] => {
+        const result: string[] = [];
+        let current = '';
+        let inQuotes = false;
+        let i = 0;
+        
+        while (i < line.length) {
+          const char = line[i];
+          
+          if (char === '"') {
+            if (inQuotes && line[i + 1] === '"') {
+              // Handle escaped quotes
+              current += '"';
+              i += 2;
+            } else {
+              // Toggle quote state
+              inQuotes = !inQuotes;
+              i++;
+            }
+          } else if (char === ',' && !inQuotes) {
+            // End of field
+            result.push(current.trim());
+            current = '';
+            i++;
+          } else {
+            current += char;
+            i++;
+          }
+        }
+        
+        // Add the last field
+        result.push(current.trim());
+        return result;
+      };
+
+      const headers = parseCSVLine(lines[0]);
       
       const jsonArray = lines.slice(1).map(line => {
-        const values = line.split(',').map(value => 
-          value.trim().replace(/^["'](.+)["']$/, '$1')
-        );
+        const values = parseCSVLine(line);
         
         const obj: Record<string, string> = {};
         headers.forEach((header, index) => {
@@ -160,7 +192,7 @@ export function CsvToJsonConverter() {
               <Textarea
                 value={jsonContent}
                 readOnly
-                className="min-h-[200px] font-mono text-sm"
+                className="min-h-[400px] font-mono text-sm"
               />
             </div>
           </div>

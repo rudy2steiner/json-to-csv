@@ -164,7 +164,12 @@ export function JsonToCsvConverter() {
           if (typeof val === 'object') {
             return `"${JSON.stringify(val).replace(/"/g, '""')}"`;
           }
-          return String(val);
+          const stringVal = String(val);
+          // Quote the value if it contains a comma, newline, or quote
+          if (stringVal.includes(',') || stringVal.includes('\n') || stringVal.includes('"')) {
+            return `"${stringVal.replace(/"/g, '""')}"`;
+          }
+          return stringVal;
         });
         csvRows.push(values.join(','));
       }

@@ -4,8 +4,8 @@ import { ExampleList } from '@/components/photo-maker/ExampleList';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { CsvToJsonConverter } from '@/components/csv-to-json';
 export const metadata: Metadata = {
-  title: 'Gallery | PhotoMaker',
-  description: 'Explore AI-generated photo transformations and examples',
+  title: 'CSV To JSON Converter Free Online | jsontocsv.co',
+  description: 'Convert JSON to CSV and CSV to JSON online. Free, fast, and secure csv converter with preview and download options.',
 };
 
 interface Props {
